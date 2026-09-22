@@ -36,8 +36,7 @@ blockPath = [modelName, '/AutonomyPipeline'];
 add_block('simulink/User-Defined Functions/MATLAB System', blockPath);
 set_param(blockPath, 'Position', [150, 20, 340, 420]);
 set_param(blockPath, 'System', 'AutonomyPipelineBlock');
-% Same reason as carlaIntegration/simulink/CarlaSimulinkInterface.m:
-% this block's callees use struct/cell arrays throughout (tracked
+% This block's callees use struct/cell arrays throughout (tracked
 % agents, predicted trajectories, candidates) - not code-generation
 % compatible.
 set_param(blockPath, 'SimulateUsing', 'Interpreted Execution');

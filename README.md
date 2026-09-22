@@ -1,27 +1,20 @@
 # SIH 2026 — Problem Statement 26037
 ## Adaptive Path Planning and Collision Avoidance for Autonomous Vehicles on Unstructured Indian Roads
 
-## Phase 9 — CARLA ↔ MATLAB ↔ Simulink integration, live-verified
+## Archived — CARLA integration (Phases 9–15)
 
-`carlaIntegration/` (Python CARLA adapter, MATLAB adapter functions, a
-Simulink `matlab.System` interface block) and `config/carlaConfig.m`
-were built, then verified end-to-end against a **real, running CARLA
-0.9.16 server** in an isolated Python 3.12 environment (the project's own
-Python 3.13 was never touched): connect, spawn, read real state (position/
-velocity/heading, including a live-data check of the coordinate
-transform), send steer/throttle/brake and observe the vehicle actually
-respond (velocity rising monotonically under throttle, falling under
-brake), drive the same loop through a real Simulink model, and clean up.
-Two real integration-layer bugs were found and fixed along the way (a
-MATLAB System block code-generation restriction, and missing real-time
-simulation pacing against CARLA's async clock) — no autonomy code was
-touched to fix either. This is still an integration **foundation** only —
-no perception/planning/decision logic runs against CARLA yet — and the
-existing MATLAB-only system (`main.m`, `demo/runDemo.m`, the five
-scenarios, K1, K2) remains completely unaffected, reverified with zero
-CARLA dependency (14/14 regression tests, 5/5 scenarios, 0 collisions).
-See [docs/carla_integration.md](docs/carla_integration.md) for the full
-verification evidence and setup instructions.
+A CARLA/MATLAB/Simulink integration layer (`carlaIntegration/`, CARLA-only
+configs, a hero urban scene, closed-loop turning, and forensic
+collision-recovery work) was built and live-verified against a real CARLA
+0.9.16 server across Phases 9–15, entirely alongside — and never modifying
+— the MATLAB-only autonomy stack below. The project has since moved to a
+**MATLAB/Simulink-only** scope for the current evaluation/release; the
+CARLA integration code has been removed from the active tree and its
+reports/evidence moved to [docs/archive/carla/](docs/archive/carla/) for
+historical reference (full history remains in Git). The MATLAB-only system
+(`main.m`, `demo/runDemo.m`, the five scenarios, K1, K2) has no CARLA
+dependency and needs no CARLA server, Python bridge, or Unreal Engine to
+run.
 
 ## Hardening — villageRoad avoid↔brake oscillation
 

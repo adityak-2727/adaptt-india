@@ -35,8 +35,7 @@ classdef AutonomyPipelineBlock < matlab.System
     % buildAutonomyPipelineModel.m) - this block's callees use struct
     % arrays and cell arrays throughout (tracked agents, predicted
     % trajectories, candidate trajectories), which are not
-    % code-generation compatible, exactly as already documented for
-    % carlaIntegration/simulink/CarlaSimulinkInterface.m.
+    % code-generation compatible.
     %
     % Closed-loop feedback: every property below that represents live
     % state (EgoState, GroundTruthAgents, TrackedAgentsPrev,
@@ -248,9 +247,7 @@ classdef AutonomyPipelineBlock < matlab.System
         % with "Property 'Scenario' is undefined", since Simulink tries
         % to partially execute stepImpl through the code-gen path to
         % infer sizes before setupImpl has ever run). All 16 outputs are
-        % fixed-size real scalars. Same pattern already used in
-        % carlaIntegration/simulink/CarlaSimulinkInterface.m, just with
-        % more ports.
+        % fixed-size real scalars.
         function varargout = getOutputSizeImpl(~)
             varargout = repmat({1}, 1, 16);
         end
