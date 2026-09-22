@@ -1,20 +1,13 @@
 # SIH 2026 — Problem Statement 26037
 ## Adaptive Path Planning and Collision Avoidance for Autonomous Vehicles on Unstructured Indian Roads
 
-## Archived — CARLA integration (Phases 9–15)
+## MATLAB/Simulink-only
 
-A CARLA/MATLAB/Simulink integration layer (`carlaIntegration/`, CARLA-only
-configs, a hero urban scene, closed-loop turning, and forensic
-collision-recovery work) was built and live-verified against a real CARLA
-0.9.16 server across Phases 9–15, entirely alongside — and never modifying
-— the MATLAB-only autonomy stack below. The project has since moved to a
-**MATLAB/Simulink-only** scope for the current evaluation/release; the
-CARLA integration code has been removed from the active tree and its
-reports/evidence moved to [docs/archive/carla/](docs/archive/carla/) for
-historical reference (full history remains in Git). The MATLAB-only system
-(`main.m`, `demo/runDemo.m`, the five scenarios, K1, K2) has no CARLA
-dependency and needs no CARLA server, Python bridge, or Unreal Engine to
-run.
+This project is MATLAB/Simulink-only for the current evaluation/release.
+`main.m`, `demo/runDemo.m`, the five scenarios, and Simulink pipeline have
+no CARLA dependency and need no CARLA server, Python bridge, or Unreal
+Engine to run. (An earlier CARLA/MATLAB/Simulink integration effort was
+explored and removed; it remains available in Git history if needed.)
 
 ## Hardening — villageRoad avoid↔brake oscillation
 

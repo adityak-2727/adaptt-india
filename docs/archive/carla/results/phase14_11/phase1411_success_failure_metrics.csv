@@ -1,4 +1,0 @@
-run,goalReached,collisionCount,firstActorType,firstContactTick,maxImpulse,minSpeed,stuckTicks_v_lt_0p10,k2Rate,pctStuckWithFullThrottle,meanBrakeWhileStuck
-run1,1,0,none,NaN,0,0,63,0.420677361853832,0.0317460317460317,0
-run2,1,140,vehicle.nissan.micra,174,2308.551,0,74,0.398510242085661,0.135135135135135,6.75675675675676e-05
-run3,0,7330,vehicle.mitsubishi.fusorosa,185,311.906,0,801,0.199,0.656679151061174,5.61797752808989e-05
